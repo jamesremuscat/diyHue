@@ -8,6 +8,7 @@ from functions.colors import convert_xy, rgbBrightness
 import binascii
 import colorsys
 import logging
+import math
 import socket
 import time
 
@@ -121,12 +122,22 @@ def groupID(group):
 
 
 def rgbToMilight(red, green, blue):
-    '''
-    This isn't quite right, and is full of magic numbers found by trial & error.
-    We just extract the hue of the rgb colour and try to map that to the
-    milight colour chart, ignoring saturation and value.
-    '''
     hsv = colorsys.rgb_to_hsv(red, green, blue)
-    hue = hsv[0] * 360
-    milight = ((225 - hue) % 360) * 256 / 360
-    return int(round(milight))
+    hue = hsv[0]
+    milight = convert_hue(hue)
+    return milight
+
+
+def convert_hue(hue):
+        """
+        Converts the hue from HSV color circle to the LimitlessLED color wheel.
+
+        Taken from https://github.com/happyleavesaoc/python-limitlessled/blob/master/limitlessled/util.py
+        as a better approach to the previous...
+
+        :param hue: The hue in decimal percent (0.0-1.0).
+        :return: The hue regarding the LimitlessLED color wheel.
+        """
+        hue = hue * -1 + 1 + (2.0/3.0)  # RGB -> BGR
+
+        return int(math.floor((hue % 1) * 256))
