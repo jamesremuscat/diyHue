@@ -12,6 +12,7 @@ sensorTypes["ZGPSWITCH"] = {"ZGPSwitch": {"state": {"buttonevent": 0, "lastupdat
 sensorTypes["RWL020"] = sensorTypes["RWL021"]
 sensorTypes["RWL022"] = sensorTypes["RWL021"]
 sensorTypes["TRADFRI remote control"] = {"ZHASwitch": {"state": {"buttonevent": 1002, "lastupdated": "none"}, "config": {"alert": "none", "battery": 90, "on": True, "reachable": True}, "static": {"swversion": "1.2.214", "manufacturername": "IKEA of Sweden"}}}
+sensorTypes["Remote Control N2"] = {"ZHASwitch": {"state": {"buttonevent": 1002, "lastupdated": "none"}, "config": {"alert": "none", "battery": 90, "on": True, "reachable": True}, "static": {"swversion": "1.2.214", "manufacturername": "IKEA of Sweden"}}}
 sensorTypes["TRADFRI on/off switch"] = {"ZHASwitch": {"state": {"buttonevent": 1002, "lastupdated": "none"}, "config": {"alert": "none", "battery": 90, "on": True, "reachable": True}, "static": {"swversion": "2.2.008", "manufacturername": "IKEA of Sweden"}}}
 sensorTypes["TRADFRI wireless dimmer"] = {"ZHASwitch": {"state": {"buttonevent": 1002, "lastupdated": "none"}, "config": {"alert": "none", "battery": 90, "on": True, "reachable": True}, "static": {"swversion": "1.2.248", "manufacturername": "IKEA of Sweden"}}}
 # Fix Deconz types
